@@ -471,7 +471,7 @@ function ThemeToggle() {
             left: 10,
             right: 10,
             top: 6,
-            height: 8,
+            bottom: 6,
             background: t.borderSubtle,
           }}
         />
@@ -480,9 +480,9 @@ function ThemeToggle() {
           className="absolute rounded-[2px] transition-all duration-200"
           style={{
             top: 6,
-            height: 8,
-            left: isDark ? 3 : undefined,
-            right: isDark ? undefined : 3,
+            bottom: 6,
+            left: isDark ? 10 : undefined,
+            right: isDark ? undefined : 24,
             width: 25,
             background: isDark ? t.accentPurple : t.accentCyan,
             opacity: 0.7,
@@ -1229,7 +1229,7 @@ function IslandsGridScreen({
           ))}
         </div>
         {/* Pagination */}
-        <div className="flex items-end justify-center gap-[8px] pt-[8px] pb-0 w-full h-full">
+        <div className="flex items-end justify-center gap-[8px] pt-[8px] pb-0 px-0 w-full h-full">
           {["‹", "1", "2", "3", "4", "...", "8", "›"].map((p, i) => (
             <button
               key={i}
