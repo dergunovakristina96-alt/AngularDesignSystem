@@ -520,7 +520,7 @@ function ThemeToggle() {
           </div>
         </div>
       </div>
-      <span className="ml-auto" style={{ color: t.textMuted }}>
+      <span className="ml-auto border border-solid" style={{ color: t.textMuted, borderColor: "transparent", background: "none" }}>
         {isDark ? <IcMoon /> : <IcSun />}
       </span>
     </button>
@@ -557,24 +557,6 @@ function Sidebar({
       label: "Client accounts",
       icon: (
         <IcUsers color={active === "accounts" ? t.accentCyan : t.iconMuted} />
-      ),
-    },
-    {
-      id: "analytics",
-      label: "Analytics",
-      icon: (
-        <IcAnalytics
-          color={active === "analytics" ? t.accentCyan : t.iconMuted}
-        />
-      ),
-    },
-    {
-      id: "settings",
-      label: "Settings & API",
-      icon: (
-        <IcSettings
-          color={active === "settings" ? t.accentCyan : t.iconMuted}
-        />
       ),
     },
   ]
@@ -800,7 +782,7 @@ function StatusBadge({ status }: { status: StatusType }) {
           style={{ borderColor: s.border }}
         />
       )}
-      <div className="content-stretch flex items-center px-[10px] py-[4px] relative">
+      <div className="content-stretch flex items-center justify-center px-[10px] py-[4px] relative">
         <p
           className="font-['Inter:Regular',sans-serif] font-normal leading-[14px] not-italic shrink-0 text-[12px] whitespace-nowrap"
           style={{ color: s.text }}
@@ -1533,11 +1515,13 @@ function ContentTableScreen({
     >
       <Sidebar active="content" onNav={onNav} svgPaths={svgZ} />
       <div className="flex flex-1 flex-col gap-[24px] items-start min-w-px pl-[24px] pr-[48px] py-[32px] self-stretch">
-        <PageHeader
-          title="Content"
-          subtitle="Manage media assets, 3D models and interactive blocks"
-          cta="+ Create content"
-        />
+        <div className="flex items-center justify-between relative shrink-0 w-full">
+          <div>
+            <p className="font-['Exo_2:SemiBold',sans-serif] font-semibold leading-[1.4] text-[28px]" style={{ color: t.textPrimary }}>Content</p>
+            <p className="font-['Inter:Regular',sans-serif] font-normal leading-[24px] text-[16px] mt-[4px]" style={{ color: t.textMuted }}>Manage media assets, 3D models and interactive blocks</p>
+          </div>
+          <button className="flex flex-row items-center gap-[4px] px-[12px] rounded-[12px] font-['Inter:Regular',sans-serif] font-normal text-[18px] whitespace-nowrap transition-all shrink-0" style={{ width: 162, height: 44, background: "#FF9B1D", color: "#141414" }}>+ Create content</button>
+        </div>
         <Toolbar placeholder="Search by island's name" />
         <div
           className={`relative rounded-[${R.md}] w-full overflow-hidden`}
@@ -1616,7 +1600,7 @@ function ContentTableScreen({
                     {row.connections}
                   </p>
                 </div>
-                <div className="px-[16px] py-[16px] flex items-center">
+                <div className="px-[16px] py-[16px] flex items-center justify-start">
                   <StatusBadge status={row.status} />
                 </div>
                 <div className="px-[16px] py-[16px] flex items-center">
@@ -1710,13 +1694,10 @@ function ContentTableScreen({
                     </div>
                   </div>
                   <div className="flex items-center gap-[12px] pt-[4px]">
-                    <DestructiveButton label="Delete content" />
-                    <SecondaryButton label="Change content" />
+                    <button className="flex flex-row items-center gap-[4px] px-[12px] rounded-[12px] font-['Inter:Regular',sans-serif] font-normal text-[18px] leading-[27px] whitespace-nowrap transition-all shrink-0" style={{ width: 148, height: 44, background: "#FF9B1D", color: "#141414" }}>Delete content</button>
+                    <button className="flex flex-row items-center gap-[4px] px-[12px] rounded-[12px] font-['Exo_2:SemiBold',sans-serif] font-semibold text-[18px] leading-[22px] whitespace-nowrap transition-all shrink-0" style={{ width: 155, height: 44, background: "#434343", color: "#FF9B1D" }}>Change content</button>
                     <div className="flex-1" />
-                    <SecondaryButton
-                      label="Link to another Island"
-                      onClick={onLinkContent}
-                    />
+                    <button onClick={onLinkContent} className="flex flex-row items-center gap-[4px] px-[12px] rounded-[12px] font-['Exo_2:SemiBold',sans-serif] font-semibold text-[18px] leading-[22px] whitespace-nowrap transition-all shrink-0" style={{ width: 206, height: 44, border: "1px solid #A1A1A1", color: "#FF9B1D" }}>Link to another Island</button>
                   </div>
                 </div>
               )}
