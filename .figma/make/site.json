@@ -1,0 +1,10 @@
+{
+  "description": "Transform your design elements with a cohesive visual style that enhances user experience while preserving structure and functionality for seamless integration.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

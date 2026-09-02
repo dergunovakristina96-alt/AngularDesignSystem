@@ -1,0 +1,8 @@
+{
+  "fonts": [
+    {"family": "Inter", "style": "Regular", "fontId": "Inter_1", "source": "GOOGLE"},
+    {"family": "Exo 2", "style": "SemiBold", "fontId": "C:\\USERS\\DERGU\\APPDATA\\LOCAL\\MICROSOFT\\WINDOWS\\FONTS\\EXO2-VARIABLEFONT_WGHT.TTF", "source": "LOCAL"},
+    {"family": "Inter", "style": "Semi Bold", "fontId": "Inter_1", "source": "GOOGLE"},
+    {"family": "Exo 2", "style": "Medium", "fontId": "C:\\USERS\\DERGU\\APPDATA\\LOCAL\\MICROSOFT\\WINDOWS\\FONTS\\EXO2-VARIABLEFONT_WGHT.TTF", "source": "LOCAL"}
+  ]
+}
