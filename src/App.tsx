@@ -460,11 +460,7 @@ function ThemeToggle() {
     <button
       onClick={toggle}
       className={`flex items-center gap-[10px] w-fit px-[12px] py-[10px] rounded-[${R.sm}] transition-colors`}
-      style={{
-        border: `1px solid ${t.borderSubtle}`,
-        background: t.bgNavActive,
-        color: t.textMuted,
-      }}
+      style={{ color: t.textMuted }}
     >
       {/* Hex slider toggle */}
       <div className="relative shrink-0" style={{ width: 48, height: 20 }}>
@@ -487,7 +483,7 @@ function ThemeToggle() {
             height: 8,
             left: isDark ? 3 : undefined,
             right: isDark ? undefined : 3,
-            width: 14,
+            width: 25,
             background: isDark ? t.accentPurple : t.accentCyan,
             opacity: 0.7,
           }}
