@@ -865,12 +865,8 @@ function DestructiveButton({
   return (
     <button
       onClick={onClick}
-      className={`rounded-[${R.md}] px-[16px] py-[12px] font-['Inter:Regular',sans-serif] font-normal text-[18px] leading-[27px] whitespace-nowrap transition-colors shrink-0`}
-      style={{
-        background: `${t.accentRed}20`,
-        border: `1px solid ${t.accentRed}`,
-        color: t.accentRed,
-      }}
+      className={`rounded-[${R.md}] px-[16px] py-[12px] font-['Exo_2:SemiBold',sans-serif] font-semibold text-[18px] leading-[27px] whitespace-nowrap hover:brightness-110 transition-all shrink-0`}
+      style={{ background: t.accentOrange, color: "#141414" }}
     >
       {label}
     </button>
@@ -1110,7 +1106,7 @@ function IslandCard({
       }}
     >
       {/* Thumbnail */}
-      <div className="relative h-[200px] overflow-hidden">
+      <div className="relative h-[258px] overflow-hidden">
         <img
           src={imgUrl}
           alt=""
@@ -1161,13 +1157,15 @@ function IslandCard({
                 className="h-px mx-[14px]"
                 style={{ background: t.borderSubtle }}
               />
-              <button
-                onClick={onMenuClick}
-                className="w-full text-left px-[14px] py-[10px] font-['Inter:Regular',sans-serif] font-normal text-[13px] transition-colors"
-                style={{ color: t.accentRed }}
-              >
-                Delete Island
-              </button>
+              <div className="p-[8px]">
+                <button
+                  onClick={onMenuClick}
+                  className={`w-full text-center rounded-[${R.md}] py-[10px] font-['Inter:Regular',sans-serif] font-normal text-[13px] transition-colors`}
+                  style={{ background: t.accentOrange, color: "#141414" }}
+                >
+                  Delete Island
+                </button>
+              </div>
             </div>
           )}
         </div>
@@ -1440,13 +1438,15 @@ function IslandsTableScreen({
                       className="h-px mx-[14px]"
                       style={{ background: t.borderSubtle }}
                     />
-                    <button
-                      onClick={() => setMenuOpen(null)}
-                      className="w-full text-left px-[14px] py-[10px] font-['Inter:Regular',sans-serif] font-normal text-[14px] transition-colors"
-                      style={{ color: t.accentRed }}
-                    >
-                      Delete Island
-                    </button>
+                    <div className="p-[8px]">
+                      <button
+                        onClick={() => setMenuOpen(null)}
+                        className={`w-full text-center rounded-[${R.md}] py-[10px] font-['Inter:Regular',sans-serif] font-normal text-[14px] transition-colors`}
+                        style={{ background: t.accentOrange, color: "#141414" }}
+                      >
+                        Delete Island
+                      </button>
+                    </div>
                   </div>
                 )}
               </div>
@@ -2615,13 +2615,15 @@ function ClientAccountsScreen({ onNav }: { onNav: (s: NavSection) => void }) {
                       className="h-px mx-[14px]"
                       style={{ background: t.borderSubtle }}
                     />
-                    <button
-                      onClick={() => setMenuOpen(null)}
-                      className="w-full text-left px-[14px] py-[10px] font-['Inter:Regular',sans-serif] font-normal text-[14px] transition-colors"
-                      style={{ color: t.accentRed }}
-                    >
-                      Deactivate account
-                    </button>
+                    <div className="p-[8px]">
+                      <button
+                        onClick={() => setMenuOpen(null)}
+                        className={`w-full text-center rounded-[${R.md}] py-[10px] font-['Inter:Regular',sans-serif] font-normal text-[14px] transition-colors`}
+                        style={{ background: t.accentOrange, color: "#141414" }}
+                      >
+                        Deactivate account
+                      </button>
+                    </div>
                   </div>
                 )}
               </div>
