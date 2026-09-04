@@ -44,14 +44,14 @@ const DARK = {
 }
 
 const LIGHT = {
-  bgBase: "#DCDCDC",
-  bgSurface: "#FFFFFF",
-  bgCard: "#FFFFFF",
+  bgBase: "#ECECF5",
+  bgSurface: "#FDFDFF",
+  bgCard: "#FDFDFF",
   bgFilter: "rgba(255,255,255,0.92)",
-  bgNavActive: "#FFFFFF",
+  bgNavActive: "#FDFDFF",
   bgNavHover: "rgba(0,0,0,0.04)",
-  bgInput: "#FFFFFF",
-  bgDropdown: "#FFFFFF",
+  bgInput: "#FDFDFF",
+  bgDropdown: "#FDFDFF",
   bgRowHover: "rgba(26,159,204,0.05)",
   bgRowExpanded: "rgba(26,159,204,0.03)",
   bgNavBar: "rgba(240,240,248,0.96)",
@@ -1470,8 +1470,8 @@ function UploadContentModal({
           height: 870,
           padding: "20px 24px",
           gap: 20,
-          background: "#14141F",
-          border: "1px solid #2A2A38",
+          background: t.bgCard,
+          border: `1px solid ${t.borderSubtle}`,
           boxShadow: t.shadowHeavy,
         }}
         onClick={(e) => e.stopPropagation()}
@@ -1544,7 +1544,7 @@ function UploadContentModal({
         {source === "file" ? (
           <div
             className="flex flex-col gap-[12px] items-center justify-center px-[24px] py-[12px] rounded-[16px] w-full"
-            style={{ background: "#141414", border: `1px dashed ${t.borderMuted}` }}
+            style={{ background: t.bgInput, border: `1px dashed ${t.borderMuted}` }}
           >
             <IcCloudUpload />
             <p
@@ -1568,7 +1568,7 @@ function UploadContentModal({
         ) : (
           <div
             className="flex flex-col items-start p-[24px] rounded-[16px] w-full"
-            style={{ background: "#141414", border: `1px dashed ${t.borderMuted}` }}
+            style={{ background: t.bgInput, border: `1px dashed ${t.borderMuted}` }}
           >
             <div className="flex flex-col gap-[4px] w-full">
               <label
@@ -1580,7 +1580,7 @@ function UploadContentModal({
               </label>
               <div
                 className={`rounded-[${R.md}] p-[12px] w-full`}
-                style={{ background: t.bgInput, border: "1px solid #727272" }}
+                style={{ background: t.bgInput, border: `1px solid ${t.borderStrong}` }}
               >
                 <input
                   id={streamUrlId}
@@ -3494,7 +3494,7 @@ function LinkContentScreen({
   onNav: (s: NavSection) => void
   onClose?: () => void
 }) {
-  const { t, isDark } = useT()
+  const { t } = useT()
   const [activeSlot, setActiveSlot] = useState("TV 1")
   const [mode, setMode] = useState<"preview" | "change">("preview")
   const [treeData, setTreeData] = useState<TreeNode>(TREE_DATA)
@@ -3560,7 +3560,7 @@ function LinkContentScreen({
           <div
             className="flex flex-col h-full shrink-0 overflow-hidden"
             style={{
-              background: isDark ? t.bgCard : "#DCDCDC",
+              background: "transparent",
               borderRight: `1px solid ${t.borderSubtle}`,
             }}
           >
@@ -3627,7 +3627,7 @@ function LinkContentScreen({
                   </div>
                   {assigned && (
                     <div
-                      className={`flex flex-row items-start shrink-0 grow-0 order-1 w-[183px] h-[21px] rounded-[${R.sm}] px-[10px] py-[4px] box-border`}
+                      className={`flex flex-row items-center justify-center shrink-0 grow-0 order-1 w-[183px] h-[21px] rounded-[${R.sm}] px-[10px] py-[4px] box-border`}
                       style={{ background: t.bgSurface }}
                     >
                       <p
@@ -3920,7 +3920,7 @@ function UserAvatar({ initials }: { initials: string }) {
 }
 
 function RoleBadge({ role }: { role: UserRole }) {
-  const { t } = useT()
+  const { t, isDark } = useT()
   type BadgeStyle = { bg: string; border: string; text: string; faded?: boolean }
   const cfg: Record<UserRole, BadgeStyle> = {
     Admin: {
@@ -3930,10 +3930,10 @@ function RoleBadge({ role }: { role: UserRole }) {
     },
     Editor: { bg: "rgba(5,5,7,0.1)", border: t.borderMuted, text: t.textMuted },
     Viewer: {
-      bg: "rgba(208,208,208,0.1)",
+      bg: isDark ? "rgba(208,208,208,0.1)" : "#E4E4EC",
       border: "none",
       text: t.textMuted,
-      faded: true,
+      faded: isDark,
     },
   }
   const s = cfg[role]
